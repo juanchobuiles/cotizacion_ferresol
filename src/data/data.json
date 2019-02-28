@@ -1,0 +1,598 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name_product": "Camisa",
+      "main_produc": [
+        {
+          "id_selection": 1,
+          "name_selection": "Dril",
+          "insumo": { "id_insumo": 1 , "promedio": 1.2 , "mano_obra": 3800 }
+          
+        },
+        {
+          "id_selection": 2,
+          "name_selection": "rib stone",
+          "insumo":   { "id_insumo": 2 , "promedio": 1.35 , "mano_obra": 3800 }
+          
+        },
+        {
+          "id_selection": 3,
+          "name_selection": "dril eco",
+          "insumo": { "id_insumo": 3 , "promedio": 1.3 , "mano_obra": 3800 }
+          
+        },
+        {
+          "id_selection": 4,
+          "name_selection": "jean",
+          "insumo": { "id_insumo": 4 , "promedio": 1.2 , "mano_obra": 4500 }
+          
+        }
+      ],
+      "options": [
+        {
+          "id_option": 1,
+          "name_option": "Manga",
+          "selection_option": [
+            {
+              "selection_name": "Larga",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0
+            },
+            {
+              "selection_name": "Corta",
+              "sublevel_selection": false,
+              "operation": "-",
+              "promedio_principal": 0.1,
+              "mano_obra": 300
+            }
+          ]
+        },
+        {
+          "id_option": 2,
+          "name_option": "Costuras",
+          "selection_option": [
+            {
+              "selection_name": "3",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0
+            },
+            {
+              "selection_name": "2",
+              "sublevel_selection": false,
+              "operation": "-",
+              "promedio_principal": 0.05,
+              "mano_obra": 300
+            }
+          ]
+        },
+        {
+          "id_option": 3,
+          "name_option": "Cuello",
+          "selection_option": [
+            {
+              "selection_name": "Sport",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0
+            },
+            {
+              "selection_name": "Cobata",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0.1,
+              "mano_obra": 3200,
+              "otro_insumo": [
+                {
+                  "id_insumo": 5,
+                  "name_insumo": "fusionable",
+                  "promedio": 0.11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id_option": 4,
+          "name_option": "Puño",
+          "selection_option": [
+            {
+              "selection_name": "Normal",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0,
+              "otro_insumo": [
+                {
+                  "id_insumo": 6,
+                  "name_insumo": "Botón",
+                  "promedio": 2
+                }
+              ]
+            },
+            {
+              "selection_name": "Rib",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0,
+              "otro_insumo": [
+                {
+                  "id_insumo": 7,
+                  "name_insumo": "Rib",
+                  "promedio": 0.07
+                }
+              ]
+            },
+            {
+              "selection_name": "Resorte",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0,
+              "otro_insumo": [
+                {
+                  "id_insumo": 8,
+                  "name_insumo": "Resorte",
+                  "promedio": 0.2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id_option": 5,
+          "name_option": "Cartera",
+          "selection_option": [
+            {
+              "selection_name": "Cubre cartera",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0.05,
+              "mano_obra": 300
+            }
+          ]
+        },
+        {
+          "id_option": 6,
+          "name_option": "Cierre",
+          "selection_option": [
+            {
+              "selection_name": "Botón",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0,
+              "otro_insumo": [
+                {
+                  "id_insumo": 6,
+                  "name_insumo": "Botón",
+                  "promedio": 5
+                }
+              ]
+            },
+            {
+              "selection_name": "Cierre",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0,
+              "otro_insumo": [
+                {
+                  "id_insumo": 9,
+                  "name_insumo": "Cierre",
+                  "promedio": 1
+                }
+              ]
+            },
+            {
+              "selection_name": "Velcro",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0,
+              "mano_obra": 0,
+              "otro_insumo": [
+                {
+                  "id_insumo": 10,
+                  "name_insumo": "Velcro",
+                  "promedio": 0.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id_option": 7,
+          "name_option": "Bolsillo",
+          "selection_option": [
+            {
+              "selection_name": "2",
+              "sublevel_selection": true,
+              "sublevel": [
+                {
+                  "selection_name": "Botón",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0,
+                  "mano_obra": 0,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 6,
+                      "name_insumo": "Botón",
+                      "promedio": 2
+                    }
+                  ]
+                },
+                {
+                  "selection_name": "Cierre",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0,
+                  "mano_obra": 0,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 9,
+                      "name_insumo": "Cierre",
+                      "promedio": 0.2
+                    }
+                  ]
+                },
+                {
+                  "selection_name": "Velcro",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0,
+                  "mano_obra": 0,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 10,
+                      "name_insumo": "Cierre",
+                      "promedio": 0.2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "selection_name": "4",
+              "sublevel_selection": true,
+              "sublevel": [
+                {
+                  "selection_name": "Botón",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.03,
+                  "mano_obra": 200,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 6,
+                      "name_insumo": "Botón",
+                      "promedio": 4
+                    }
+                  ]
+                },
+                {
+                  "selection_name": "Cierre",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.03,
+                  "mano_obra": 200,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 9,
+                      "name_insumo": "Cierre",
+                      "promedio": 0.4
+                    }
+                  ]
+                },
+                {
+                  "selection_name": "Velcro",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.03,
+                  "mano_obra": 200,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 10,
+                      "name_insumo": "Cierre",
+                      "promedio": 0.4
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id_option": 8,
+          "name_option": "Almilla",
+          "selection_option": [
+            {
+              "selection_name": "Almilla",
+              "sublevel_selection": false,
+              "operation": "+",
+              "promedio_principal": 0.05,
+              "mano_obra": 300
+            }
+          ]
+        },
+        {
+          "id_option": 9,
+          "name_option": "Refuerso",
+          "selection_option": [
+            {
+              "selection_name": "Sin guata",
+              "sublevel_selection": true,
+              "sublevel": [
+                {
+                  "selection_name": "Hombro",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.08,
+                  "mano_obra": 600
+                },
+                {
+                  "selection_name": "Axila",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.04,
+                  "mano_obra": 300
+                },
+                {
+                  "selection_name": "Delantero",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.05,
+                  "mano_obra": 300
+                }
+              ]
+            },
+            {
+              "selection_name": "Con guata",
+              "sublevel_selection": true,
+              "sublevel": [
+                {
+                  "selection_name": "Hombro",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.08,
+                  "mano_obra": 600,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 11,
+                      "name_insumo": "guata",
+                      "promedio": 0.08
+                    }
+                  ]
+                },
+                {
+                  "selection_name": "Axila",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.04,
+                  "mano_obra": 300,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 11,
+                      "name_insumo": "guata",
+                      "promedio": 0.04
+                    }
+                  ]
+                },
+                {
+                  "selection_name": "Delantero",
+                  "sublevel_selection": false,
+                  "operation": "+",
+                  "promedio_principal": 0.05,
+                  "mano_obra": 300,
+                  "otro_insumo": [
+                    {
+                      "id_insumo": 11,
+                      "name_insumo": "guata",
+                      "promedio": 0.05
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id_option": 10,
+          "name_option": "Cinta reflectiva",
+          "selection_option": [
+            {
+              "selection_name": "Tela",
+              "sublevel_selection": true,
+              "sublevel": [
+                {
+                  "selection_name": "1 pulgada",
+                  "sublevel_selection": true,
+                  "sublevel": [
+                    {
+                      "selection_name": "Mangas",
+                      "sublevel_selection": true,
+                      "sublevel": [
+                        {
+                          "selection_name": "1 Linea",
+                          "sublevel_selection": false,
+                          "operation": "+",
+                          "promedio_principal": 0,
+                          "mano_obra": 500,
+                          "otro_insumo": [
+                            {
+                              "id_insumo": 12,
+                              "name_insumo": "Cinta tela",
+                              "promedio": 2.2
+                            }
+                          ]
+                        },
+                        {
+                          "selection_name": "2 Lineas",
+                          "sublevel_selection": false,
+                          "operation": "+",
+                          "promedio_principal": 0,
+                          "mano_obra": 1000,
+                          "otro_insumo": [
+                            {
+                              "id_insumo": 12,
+                              "name_insumo": "Cinta tela",
+                              "promedio": 4.4
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "selection_name": "Espalda",
+                      "sublevel_selection": true,
+                      "sublevel": [
+                        {
+                          "selection_name": "1 Linea",
+                          "sublevel_selection": false,
+                          "operation": "+",
+                          "promedio_principal": 0,
+                          "mano_obra": 300,
+                          "otro_insumo": [
+                            {
+                              "id_insumo": 12,
+                              "name_insumo": "Cinta tela",
+                              "promedio": 0.45
+                            }
+                          ]
+                        },
+                        {
+                          "selection_name": "2 Lineas",
+                          "sublevel_selection": false,
+                          "operation": "+",
+                          "promedio_principal": 0,
+                          "mano_obra": 600,
+                          "otro_insumo": [
+                            {
+                              "id_insumo": 12,
+                              "name_insumo": "Cinta tela",
+                              "promedio": 0.9
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "selection_name": "Delantero",
+                      "sublevel_selection": true,
+                      "sublevel": [
+                        {
+                          "selection_name": "1 Linea",
+                          "sublevel_selection": false,
+                          "operation": "+",
+                          "promedio_principal": 0,
+                          "mano_obra": 200,
+                          "otro_insumo": [
+                            {
+                              "id_insumo": 12,
+                              "name_insumo": "Cinta tela",
+                              "promedio": 0.5
+                            }
+                          ]
+                        },
+                        {
+                          "selection_name": "2 Lineas",
+                          "sublevel_selection": false,
+                          "operation": "+",
+                          "promedio_principal": 0,
+                          "mano_obra": 400,
+                          "otro_insumo": [
+                            {
+                              "id_insumo": 12,
+                              "name_insumo": "Cinta tela",
+                              "promedio": 1
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "selection_name": "2 pulgadas",
+                  "sublevel_selection": true,
+                  "sublevel": []
+                }
+              ]
+            },
+            {
+              "selection_name": "Bicolor",
+              "sublevel_selection": true,
+              "sublevel": [
+                {
+                  "selection_name": "1 pulgada",
+                  "sublevel_selection": true,
+                  "sublevel": []
+                },
+                {
+                  "selection_name": "2 pulgadas",
+                  "sublevel_selection": true,
+                  "sublevel": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name_product": "Pantalon",
+      "main_produc":[
+        {
+          "id_selection": 1,
+          "name_selection": "Dril",
+          "insumo": [
+            { "id_insumo": 1 },
+            { "promedio": 1.2 },
+            { "mano_obra": 3800 }
+          ]
+        },
+        {
+          "id_selection": 2,
+          "name_selection": "rib stone",
+          "insumo": [
+            { "id_insumo": 2 },
+            { "promedio": 1.35 },
+            { "mano_obra": 3800 }
+          ]
+        },
+        {
+          "id_selection": 3,
+          "name_selection": "dril eco",
+          "insumo": [
+            { "id_insumo": 3 },
+            { "promedio": 1.3 },
+            { "mano_obra": 3800 }
+          ]
+        },
+        {
+          "id_selection": 4,
+          "name_selection": "jean",
+          "insumo": [
+            { "id_insumo": 4 },
+            { "promedio": 1.2 },
+            { "mano_obra": 4500 }
+          ]
+        }
+      ],
+      "options":[]
+    },
+    {
+      "id": 3,
+      "name_product": "Gorros",
+      "main_produc":[],
+      "options":[]
+    }
+  ]
+}

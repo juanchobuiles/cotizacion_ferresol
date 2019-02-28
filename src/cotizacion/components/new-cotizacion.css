@@ -1,0 +1,10 @@
+.cotizacion-table , .cotizacion-inputGroup{
+    padding: 0.5em 0;
+}
+
+.cotizacion-select-options , .cotizacion-button{
+    padding-top: 0.5em;
+}
+.cotizacion-button-finalizar button{
+    padding-right: 1em;
+}
