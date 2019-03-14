@@ -22,6 +22,7 @@ class Header extends Component{
     }
     render(){
         return(
+            
             <Navbar  bg="light">
                 <Navbar.Brand as="a" onClick={this.ocultaNav}  ><i className="material-icons">menu</i></Navbar.Brand>
                 <Navbar.Toggle />

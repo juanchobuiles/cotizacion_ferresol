@@ -5,6 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import logo from '../images/logo.png'
 import './menu.css'
 const Menu = () => (
+    
     <Navbar bsPrefix="nav-menu" className="toggle-content.is-visible" bg="dark" variant="dark">
         <Navbar.Brand>
             <Link to="/"><img src={logo} width={250}></img></Link>
@@ -28,21 +29,25 @@ const Menu = () => (
                     </div>
                 }
             >
+                <LinkContainer to="/selections">
+                    <NavDropdown.Item>
+                    <i className="material-icons">description   </i> Selecciones
+                    </NavDropdown.Item>
+                </LinkContainer>
                 <LinkContainer to="/clients">
                     <NavDropdown.Item>
                     <i className="material-icons">person</i> Clientes
                     </NavDropdown.Item>
                 </LinkContainer>
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <LinkContainer to="/items">
+                    <NavDropdown.Item>
+                    <i className="material-icons">view_module</i> Items
+                    </NavDropdown.Item>
+                </LinkContainer>
+                
 
             </NavDropdown>
-            <LinkContainer to="/contact">
-                <Nav.Link>
-                    Contact
-                </Nav.Link>
-            </LinkContainer>
+        
         </Nav>
     </Navbar>
 )

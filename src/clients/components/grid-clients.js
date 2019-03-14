@@ -8,11 +8,11 @@ const GridClients = (props) => {
             options={{ noDataText: 'Aún no hay datos para la consulta' }}
 
         >
-            <TableHeaderColumn dataField='nit' isKey={true}>Nit</TableHeaderColumn>
-            <TableHeaderColumn dataField='name'>Nombre</TableHeaderColumn>
-            <TableHeaderColumn dataField='addres'>Dirección</TableHeaderColumn>
-            <TableHeaderColumn dataField='city'>Ciudad</TableHeaderColumn>
-            <TableHeaderColumn dataField='telephone'>Teléfono</TableHeaderColumn>
+            <TableHeaderColumn dataField='NIT' isKey={true}>Nit</TableHeaderColumn>
+            <TableHeaderColumn dataField='NOMBRE'>Nombre</TableHeaderColumn>
+            <TableHeaderColumn dataField='DIRECCION'>Dirección</TableHeaderColumn>
+            <TableHeaderColumn dataField='CIUDAD'>Ciudad</TableHeaderColumn>
+            <TableHeaderColumn dataField='TELEFONO'>Teléfono</TableHeaderColumn>
         </BootstrapTable>
     )
 }

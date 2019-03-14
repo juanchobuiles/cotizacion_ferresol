@@ -6,6 +6,13 @@ class Clients extends Component {
         clients : [],
         routes: [{name:"Clientes" , active:true}],
     }
+
+    componentWillMount(){
+        fetch('http://localhost:8080/clients')
+            .then(response => response.json())
+            .then(clients => this.setState({clients}) )
+    }
+
     render(){
         return(
             <div>
