@@ -8,6 +8,7 @@ const SelectCombobox = (props) => (
         options={props.option}
         onChange = {props.onChange}
         isClearable = {props.isClearable}
+        isMulti
     />
 
     
