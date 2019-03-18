@@ -1,6 +1,9 @@
-.react-bs-table-bordered{
-    background: white;
+.react-bs-table-bordered {
+  background: white;
 }
-.selecciones-botones-grid>.btn-sm{
-    margin-right: .5rem;
+.selecciones-botones-grid > .btn-sm {
+  margin-right: 0.5rem;
+}
+.newProducts-button {
+  margin-bottom: 0.5em;
 }

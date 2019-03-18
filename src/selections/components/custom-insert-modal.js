@@ -1,15 +1,17 @@
 import React from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import SelectCombobox from "../../cotizacion/components/select-combox";
+import "./modal.css";
 const CustomInsertModal = props => {
   return (
     <Modal
+      size="lg"
       show={props.show}
       onHide={props.onHide}
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header closeButton className="title-modal">
         <Modal.Title id="example-custom-modal-styling-title">
           Nueva Tela
         </Modal.Title>
