@@ -10,6 +10,7 @@ import {
 import GridNewMainProduct from "../components/grid-new-mainproduct";
 import Select from "react-select";
 import CustomInsertModal from "../components/custom-insert-modal";
+import GridNewMainProductExpand from "../components/grid-new-mainproduc-expand";
 
 class NewSelection extends Component {
   state = {
@@ -24,6 +25,34 @@ class NewSelection extends Component {
       { name: "Nuevo", active: true }
     ]
   };
+
+  isExpandableRow() {
+    return true;
+  }
+
+  expandComponent(row) {
+    return (
+      <GridNewMainProductExpand data={row.insumo} />
+    );
+  }
+
+  expandColumnComponent({ isExpandableRow, isExpanded }) {
+    let content = '';
+
+    if (isExpandableRow) {
+      content = (isExpanded ? <i className="material-icons">
+        remove_circle_outline
+        </i> : <i className="material-icons">
+          add_circle_outline
+        </i>);
+    } else {
+      content = ' ';
+    }
+    return (
+      <div> {content} </div>
+    );
+  }
+
   selectMulti = e => {
     this.setState({ selectOptions: e });
   };
@@ -32,13 +61,14 @@ class NewSelection extends Component {
     const $promedio = parseFloat(document.getElementById("formPromedio").value);
     const $mano_obra = parseFloat(document.getElementById("formMObra").value);
     this.state.tela.push({
-      id: "1",
+      id: this.consultId(),
       name_selection: $name_selection,
       insumo: this.state.selectOptions.map(element => {
         let elements = {};
         elements["promedio"] = $promedio;
         elements["mano_obra"] = $mano_obra;
         elements["id_insumo"] = element.value;
+        elements["name_insumo"] = element.label;
         return elements;
       })
     });
@@ -48,6 +78,14 @@ class NewSelection extends Component {
       show: false
     });
   };
+
+  consultId = ()=>{
+      if (this.state.tela.length === 0) {
+        return 1
+      }else{
+        return this.state.tela.length + 1;
+      }
+  }
 
   handleShow = () => {
     this.setState({ show: true });
@@ -65,8 +103,6 @@ class NewSelection extends Component {
 
   render() {
     const { open1, open } = this.state;
-    console.log(this.state.items);
-
     return (
       <div>
         <Routes name={this.state.routes} />
@@ -101,7 +137,18 @@ class NewSelection extends Component {
               <Button variant="secondary" size="sm" onClick={this.handleShow}>
                 Nueva Tela
               </Button>
-              <GridNewMainProduct tela={this.state.tela} />
+              <GridNewMainProduct 
+              tela={this.state.tela}
+              expandableRow={this.isExpandableRow}
+                    expandComponent={this.expandComponent}
+                    expandColumnOptions={{
+                        expandColumnVisible: true,
+                        expandColumnComponent: this.expandColumnComponent,
+                        columnWidth: 50
+                    }
+
+                    }
+               />
               <CustomInsertModal
                 show={this.state.show}
                 onHide={this.handleHide}
