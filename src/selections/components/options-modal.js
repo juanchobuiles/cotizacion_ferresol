@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  Modal,
-  Button,
-  Card,
-  CardGroup,
-  Form,
-  Row,
-  Col
-} from "react-bootstrap";
+import { Modal, Button, Card, CardGroup, Form } from "react-bootstrap";
 // import SelectCombobox from "../../cotizacion/components/select-combox";
 import "./modal.css";
+import Selecciones from "./selecciones";
 
 const OptionsModal = props => {
   return (
@@ -22,7 +15,7 @@ const OptionsModal = props => {
     >
       <Modal.Header closeButton className="title-modal">
         <Modal.Title id="example-custom-modal-styling-title">
-          Nueva selección
+          Selecciones
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -30,18 +23,16 @@ const OptionsModal = props => {
           <Card>
             <Card.Body>
               <Form>
-                <Form.Group as={Row} controlId="formNombreOption">
-                  <Form.Label column sm={2}>
-                    Nombre
-                  </Form.Label>
-                  <Col sm={10}>
-                    <Form.Control
-                      type="text"
-                      placeholder="Nombre selección"
-                      name="nombreInput"
+                {props.seleccionArry.map((a, index) => {
+                  return (
+                    <Selecciones
+                      label={a.label}
+                      placeholder={a.placeholder}
+                      name={a.name}
+                      handleChangeSubnivel={props.handleChangeSubnivel}
                     />
-                  </Col>
-                </Form.Group>
+                  );
+                })}
               </Form>
             </Card.Body>
           </Card>

@@ -24,6 +24,14 @@ class NewSelection extends Component {
     items: [],
     selectOptions: [],
     tela: [],
+    seleccionArry: [
+      {
+        id: 1,
+        label: "Nombre",
+        placeholder: "Nombre selección",
+        name: "nombreInput"
+      }
+    ],
     routes: [
       { name: "Selecciones", active: false, route: "/selections" },
       { name: "Nuevo", active: true }
@@ -62,7 +70,7 @@ class NewSelection extends Component {
     const $promedio = parseFloat(document.getElementById("formPromedio").value);
     const $mano_obra = parseFloat(document.getElementById("formMObra").value);
     this.state.tela.push({
-      id: this.consultId(),
+      id: this.consultId(this.state.tela.length),
       name_selection: $name_selection,
       insumo: this.state.selectOptions.map(element => {
         let elements = {};
@@ -80,11 +88,11 @@ class NewSelection extends Component {
     });
   };
 
-  consultId = () => {
-    if (this.state.tela.length === 0) {
+  consultId = stateArray => {
+    if (stateArray === 0) {
       return 1;
     } else {
-      return this.state.tela.length + 1;
+      return stateArray + 1;
     }
   };
 
@@ -102,6 +110,29 @@ class NewSelection extends Component {
 
   handleHide = () => {
     this.setState({ show: false });
+  };
+
+  handleChangeSubnivel = e => {
+    console.log(e.value);
+
+    if (e.value) {
+      this.state.seleccionArry.push({
+        id: this.consultId(this.state.seleccionArry.length),
+        label: "Subselección",
+        placeholder: "Nombre subSelección",
+        name: "nombreInput"
+      });
+      this.setState({
+        seleccionArry: this.state.seleccionArry
+      });
+    } else if (!e.value) {
+      if (this.state.seleccionArry.length > 1) {
+        this.state.seleccionArry.pop();
+        this.setState({
+          seleccionArry: this.state.seleccionArry
+        });
+      }
+    }
   };
 
   componentWillMount() {
@@ -225,6 +256,8 @@ class NewSelection extends Component {
                   <OptionsModal
                     show={this.state.showOptions}
                     onHide={this.handleHideOptions}
+                    seleccionArry={this.state.seleccionArry}
+                    handleChangeSubnivel={this.handleChangeSubnivel}
                   />
                 </Card.Body>
                 <Card.Footer>
