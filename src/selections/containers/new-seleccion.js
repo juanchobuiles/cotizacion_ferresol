@@ -24,7 +24,7 @@ class NewSelection extends Component {
     selectOptions: [],
     selectInsumo: [],
     tela: [],
-    selection_option:[],
+    selection_option: [],
     seleccionArry: [
       {
         id: 1,
@@ -33,7 +33,7 @@ class NewSelection extends Component {
         name: "nombreSeleccion"
       }
     ],
-    optionGroup:false,
+    optionGroup: false,
     routes: [
       { name: "Selecciones", active: false, route: "/selections" },
       { name: "Nuevo", active: true }
@@ -96,28 +96,33 @@ class NewSelection extends Component {
 
   saveSelecciones = e => {
     const $name_selection = document.getElementsByName("nombreSeleccion");
-    const $promedio_tela = parseFloat(document.getElementById("formPromedio").value);
-    const $Mano_Obra = parseFloat(document.getElementById("formManoObra").value);
-    const length_selection = $name_selection.length
-    let arrego = []
-    $name_selection.forEach((element,i) => {
-      if (i+1 === 1){
-        arrego["selection_name"] = element.value
-        arrego["noLevel"]= length_selection
-             
+    const $promedio_tela = parseFloat(
+      document.getElementById("formPromedio").value
+    );
+    const $Mano_Obra = parseFloat(
+      document.getElementById("formManoObra").value
+    );
+    const length_selection = $name_selection.length;
+    let arrego = [];
+    $name_selection.forEach((element, i) => {
+      console.log(i, i + 1);
+
+      if (i + 1 === 1) {
+        arrego["selection_name"] = element.value;
+        arrego["noLevel"] = length_selection;
+      } else if (i < length_selection) {
+        arrego["sublevel_selection"] = true;
+        arrego[`selection_name ${i + 1}`] = element.value;
+      } else if (i === length_selection - 1) {
+        arrego["sublevel_selection"] = false;
+        arrego["operation"] = "+";
+        arrego["promedio_principal"] = $promedio_tela;
+        arrego["mano_obra"] = $Mano_Obra;
       }
-      
-   
-      arrego["sublevel_selection"] = false
-      arrego["operation"]= "+"
-      arrego["promedio_principal"]= $promedio_tela
-      arrego["mano_obra"]=  $Mano_Obra
-    
-    console.log(arrego) 
     });
-  console.log(arrego)
+    console.log(arrego);
     //     this.setState({
-    //       selection_option:this.state.selection_option 
+    //       selection_option:this.state.selection_option
     //     })
     // console.log(this.state.selection_option )
   };
@@ -135,18 +140,18 @@ class NewSelection extends Component {
   };
 
   handleShowOptions = () => {
-    this.setState(
-      { 
-        showOptions: true,
-        seleccionArry: [
-          {
-            id: 1,
-            label: "Nombre",
-            placeholder: "Nombre selección",
-            name: "nombreSeleccion"
-          }
-        ],
-        optionGroup:false });
+    this.setState({
+      showOptions: true,
+      seleccionArry: [
+        {
+          id: 1,
+          label: "Nombre",
+          placeholder: "Nombre selección",
+          name: "nombreSeleccion"
+        }
+      ],
+      optionGroup: false
+    });
   };
 
   handleHideOptions = () => {
@@ -167,18 +172,18 @@ class NewSelection extends Component {
       });
       this.setState({
         seleccionArry: this.state.seleccionArry,
-        optionGroup:false
+        optionGroup: false
       });
     } else if (!e.value) {
       if (this.state.seleccionArry.length > 1) {
         this.state.seleccionArry.pop();
         this.setState({
           seleccionArry: this.state.seleccionArry,
-          optionGroup:true
+          optionGroup: true
         });
-      }else{
+      } else {
         this.setState({
-          optionGroup:true
+          optionGroup: true
         });
       }
     }
@@ -223,7 +228,7 @@ class NewSelection extends Component {
                     disabled={this.state.optionVisible}
                   />
                 </Col>
-              </Form.Group >
+              </Form.Group>
               <Button
                 variant="secondary"
                 size="sm"
