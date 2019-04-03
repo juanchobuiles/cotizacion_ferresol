@@ -1,10 +1,18 @@
 import React from "react";
-import { Modal, Button, Card, CardGroup, Form, Row, Col } from "react-bootstrap";
+import {
+  Modal,
+  Button,
+  Card,
+  CardGroup,
+  Form,
+  Row,
+  Col
+} from "react-bootstrap";
 import SelectCombobox from "../../cotizacion/components/select-combox";
 import "./modal.css";
 import Selecciones from "./selecciones";
 import Select from "react-select";
-const options = [{ value: '+', label: "Suma" }, { value: '-', label: "Resta" }];
+const options = [{ value: "+", label: "Suma" }, { value: "-", label: "Resta" }];
 const OptionsModal = props => {
   return (
     <Modal
@@ -33,18 +41,18 @@ const OptionsModal = props => {
                       handleChangeSubnivel={props.handleChangeSubnivel}
                     />
                   );
-                })
-
-                }
-                {
-                  props.optionGroup &&
+                })}
+                {props.optionGroup && (
                   <div>
                     <Form.Group as={Row} controlId="formOperacion">
                       <Form.Label column sm={2}>
                         Operación
                       </Form.Label>
                       <Col sm={10}>
-                        <Select options={options} />
+                        <Select
+                          onChange={props.handleChangeOperation}
+                          options={options}
+                        />
                       </Col>
                     </Form.Group>
                     <Form.Group as={Row} controlId="formPromedio">
@@ -54,7 +62,7 @@ const OptionsModal = props => {
                       <Col sm={10}>
                         <Form.Control
                           type="text"
-                          placeholder='Consumo promedio tela'
+                          placeholder="Consumo promedio tela"
                           name="promedio"
                         />
                       </Col>
@@ -66,7 +74,7 @@ const OptionsModal = props => {
                       <Col sm={10}>
                         <Form.Control
                           type="text"
-                          placeholder='Mano de obra'
+                          placeholder="Mano de obra"
                           name="mObra"
                         />
                       </Col>
@@ -95,13 +103,13 @@ const OptionsModal = props => {
                       <Col sm={10}>
                         <Form.Control
                           type="text"
-                          placeholder='Consumo promedio del insumo'
+                          placeholder="Consumo promedio del insumo"
                           name="promedioInsumo"
                         />
                       </Col>
                     </Form.Group>
                   </div>
-                }
+                )}
               </Form>
             </Card.Body>
           </Card>

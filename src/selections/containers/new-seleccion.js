@@ -7,16 +7,18 @@ import {
   FormControl,
   Form,
   Row,
-  Col
+  Col,
+  ButtonToolbar
 } from "react-bootstrap";
 import GridNewMainProduct from "../components/grid-new-mainproduct";
 import CustomInsertModal from "../components/custom-insert-modal";
 import GridNewMainProductExpand from "../components/grid-new-mainproduc-expand";
+import GridNewSeleccion from "../components/grid-new-seleccion";
 import OptionsModal from "../components/options-modal";
 
 class NewSelection extends Component {
   state = {
-    open1: false,
+    open1: true,
     open: false,
     show: false,
     showOptions: false,
@@ -34,6 +36,7 @@ class NewSelection extends Component {
       }
     ],
     optionGroup: false,
+    operacion: null,
     routes: [
       { name: "Selecciones", active: false, route: "/selections" },
       { name: "Nuevo", active: true }
@@ -105,26 +108,33 @@ class NewSelection extends Component {
     const length_selection = $name_selection.length;
     let arrego = [];
     $name_selection.forEach((element, i) => {
-      console.log(i, i + 1);
-
-      if (i + 1 === 1) {
+      if (length_selection === 1) {
+        arrego["id"] = this.consultId(this.state.selection_option.length);
         arrego["selection_name"] = element.value;
         arrego["noLevel"] = length_selection;
-      } else if (i < length_selection) {
+        arrego["operation"] = this.state.operacion;
+        arrego["promedio_principal"] = $promedio_tela;
+        arrego["mano_obra"] = $Mano_Obra;
+      } else if (i + 1 === 1) {
+        arrego["id"] = this.consultId(this.state.selection_option.length);
+        arrego["selection_name"] = element.value;
+        arrego["noLevel"] = length_selection;
+      } else if (i + 1 < length_selection) {
         arrego["sublevel_selection"] = true;
-        arrego[`selection_name ${i + 1}`] = element.value;
-      } else if (i === length_selection - 1) {
+        arrego[`selection_name ${i}`] = element.value;
+      } else if (i + 1 === length_selection) {
+        arrego[`selection_name ${i}`] = element.value;
         arrego["sublevel_selection"] = false;
-        arrego["operation"] = "+";
+        arrego["operation"] = this.state.operacion;
         arrego["promedio_principal"] = $promedio_tela;
         arrego["mano_obra"] = $Mano_Obra;
       }
     });
-    console.log(arrego);
-    //     this.setState({
-    //       selection_option:this.state.selection_option
-    //     })
-    // console.log(this.state.selection_option )
+    this.state.selection_option.push(arrego);
+    this.setState({
+      selection_option: this.state.selection_option,
+      showOptions: false
+    });
   };
 
   consultId = stateArray => {
@@ -188,6 +198,27 @@ class NewSelection extends Component {
       }
     }
   };
+  handleChangeOperation = e => {
+    this.setState({
+      operacion: e.value
+    });
+  };
+
+  buttonFormatter(cell, row) {
+    return (
+      <ButtonToolbar className="selecciones-botones-grid">
+        <Button variant="outline-secondary" size="sm">
+          <i className="material-icons">ballot</i>
+        </Button>
+        <Button variant="outline-info" size="sm">
+          <i className="material-icons">create</i>
+        </Button>
+        <Button variant="outline-danger" size="sm">
+          <i className="material-icons">clear</i>
+        </Button>
+      </ButtonToolbar>
+    );
+  }
 
   componentWillMount() {
     fetch("http://localhost:8080/items")
@@ -298,21 +329,16 @@ class NewSelection extends Component {
                   >
                     Agregar selección
                   </Button>
-                  <GridNewMainProduct
-                    tela={this.state.tela}
-                    expandableRow={this.isExpandableRow}
-                    expandComponent={this.expandComponent}
-                    expandColumnOptions={{
-                      expandColumnVisible: true,
-                      expandColumnComponent: this.expandColumnComponent,
-                      columnWidth: 50
-                    }}
+                  <GridNewSeleccion
+                    selection_option={this.state.selection_option}
+                    buttonFormatter={this.buttonFormatter}
                   />
                   <OptionsModal
                     show={this.state.showOptions}
                     onHide={this.handleHideOptions}
                     seleccionArry={this.state.seleccionArry}
                     handleChangeSubnivel={this.handleChangeSubnivel}
+                    handleChangeOperation={this.handleChangeOperation}
                     optionGroup={this.state.optionGroup}
                     items={this.state.items}
                     saveSelecciones={this.saveSelecciones}
